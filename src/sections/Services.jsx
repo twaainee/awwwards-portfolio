@@ -60,7 +60,7 @@ const Services = () => {
                   top: `calc(10vh + ${index * 5}em)`,
                   marginBottom: `${(servicesData.length - index - 1) * 5}rem`,
                 }
-              : { top: "4.5rem" }
+              : { top: "3rem" }
           }
         >
           <div className="flex items-center justify-between gap-4 font-light">
