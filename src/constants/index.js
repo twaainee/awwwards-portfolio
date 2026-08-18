@@ -6,73 +6,77 @@ export const servicesData = [
       "Your business deserves a fast, secure, and future-proof digital foundation. I develop custom web apps with clean architecture, optimized databases, and seamless integrations—ensuring reliability at every layer.",
     items: [
       {
-        title: "Backend Engineering",
-        description: "(REST/GraphQL APIs, Microservices, Auth Systems)",
+        title: "Backend Engineering"
       },
       {
-        title: "Frontend Excellence",
-        description: "(React, Vue, TypeScript, Interactive UI/UX)",
+        title: "Frontend Excellence"
       },
       {
-        title: "Database Design",
-        description: "(SQL/NoSQL Optimization, Scalable Structures)",
+        title: "Database Design"
       },
     ],
   },
   {
-    title: "DevOps & Cloud Solutions",
+    title: "UI/UX & Frontend Development",
     description:
-      "Deploying software shouldn't be a gamble. I automate infrastructure, enforce security, and leverage cloud platforms (AWS/Azure) to keep your app running smoothly—24/7, at any scale.",
+      "Create clean, responsive interfaces that don't just look good—they make products easier, clearer, and more enjoyable to use.",
     items: [
       {
-        title: "CI/CD Pipelines",
-        description: "(GitHub Actions, Docker, Kubernetes)",
+        title: "UI/UX Designer"
       },
       {
-        title: "Server Management ",
-        description: "(Linux, Nginx, Load Balancing)",
+        title: "Frontend Developer"
       },
       {
-        title: "Performance Tuning",
-        description: "(Caching, Compression, Lighthouse 90+ Scores)",
+        title: "Interaction Designer"
       },
     ],
   },
   {
-    title: "Security & Optimization",
+    title: "API & Backend Solutions",
     description:
-      "Slow or hacked apps destroy trust. I harden security (XSS/SQLI protection, OAuth) and optimize bottlenecks so your app stays fast, safe, and scalable as you grow.",
+      "Build the systems behind the screen—connecting applications, APIs, databases, and external services into one reliable digital ecosystem.",
     items: [
       {
-        title: "Code Audits",
-        description: "(Refactoring, Tech Debt Cleanup)",
+        title: "Backend Engineer"
       },
       {
-        title: "Pen Testing",
-        description: "(Vulnerability Assessments)",
+        title: "API Developer"
       },
       {
-        title: "SEO Tech Stack",
-        description: "(SSR, Metadata, Structured Data)",
+        title: "Database Engineer"
       },
     ],
   },
   {
-    title: "Web & Mobile Apps",
+    title: "AI & Data Science Solutions",
     description:
-      "A clunky interface can sink even the best ideas. I craft responsive, pixel perfect web and mobile apps (React Native/Flutter) that users love—bridging design and functionality seamlessly.",
+      "Turn raw data into useful insights and intelligent features, exploring analytics, visualization, machine learning, and data-driven applications to solve real problems.",
     items: [
       {
-        title: "Cross-Platform Apps",
-        description: "(Single codebase for iOS/Android/Web)",
+        title: "Data Scientist",
       },
       {
-        title: "PWAs",
-        description: "(Offline mode, Push Notifications)",
+        title: "Data Analyst"
       },
       {
-        title: "E-Commerce",
-        description: "(Checkout flows, Payment Gateways, Inventory APIs)",
+        title: "Machine Learning Engineer"
+      },
+    ],
+  },
+  {
+    title: "Interactive & Emerging Technology",
+    description:
+      "Experiment with technologies that push applications beyond the traditional web, from interactive maps and computer vision to blockchain and Web3 experiences.",
+    items: [
+      {
+        title: "Blockchain Developer"
+      },
+      {
+        title: "Computer Vision"
+      },
+      {
+        title: "Web3 Developer"
       },
     ],
   },
@@ -80,93 +84,80 @@ export const servicesData = [
 export const projects = [
   {
     id: 1,
-    name: "Mobile Accessories E-commerce",
+    name: "TranspoGAPO",
     description:
-      "An online store specializing in phone accessories including cases, chargers, cables, and power banks with MagSafe compatibility.",
+      "TranspoGAPO is an interactive, map-based web application designed to showcase the different Public Utility Vehicles (PUVs) operating in Olongapo City.",
     href: "",
-    image: "/assets/projects/mobile-accessories-store.jpg",
+    image: "/assets/projects/transpogapo.png",
     bgImage: "/assets/backgrounds/blanket.jpg",
     frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Next.js" },
-      { id: 3, name: "Node.js" },
-      { id: 4, name: "MongoDB" },
-      { id: 5, name: "Tailwind CSS" },
+      { id: 1, name: "HTML" },
+      { id: 2, name: "CSS" },
+      { id: 3, name: "JavaScript" },
+      { id: 4, name: "Firebase" },
+      { id: 5, name: "Leaflet.Js" },
     ],
   },
   {
     id: 2,
-    name: "Plant Shop E-commerce",
+    name: "FlowBuddy",
     description:
-      "An online store specializing in rare and decorative plants with a clean, user-friendly interface.",
+      "FlowBuddy is a web-based application that uses AI-powered pose detection to assist users in performing yoga correctly.",
     href: "",
-    image: "/assets/projects/plant-shop.jpg",
+    image: "/assets/projects/flowbuddy.png",
     bgImage: "/assets/backgrounds/curtains.jpg",
     frameworks: [
-      { id: 1, name: "React" },
-      { id: 2, name: "Next.js" },
-      { id: 3, name: "Stripe API" },
-      { id: 4, name: "Tailwind CSS" },
+      { id: 1, name: "HTML" },
+      { id: 2, name: "CSS" },
+      { id: 3, name: "JavaScript" },
+      { id: 4, name: "MediaPipe" },
     ],
   },
   {
     id: 3,
-    name: "Apple Tech Marketplace",
+    name: "Landr",
     description:
-      "An e-commerce platform for Apple products and accessories with deals and category filtering.",
+      "A Smart Contract-Based Digital Land Registry System Using Avalanche Blockchain and Interactive Mapping for Transparent Land Record Management",
     href: "",
-    image: "/assets/projects/apple-tech-store.jpg",
+    image: "/assets/projects/landr.png",
     bgImage: "/assets/backgrounds/map.jpg",
     frameworks: [
-      { id: 1, name: "Blazor" },
-      { id: 2, name: "ASP.NET Core" },
-      { id: 3, name: "SQL Server" },
-      { id: 4, name: "Bootstrap" },
+      { id: 1, name: "HTML" },
+      { id: 2, name: "CSS" },
+      { id: 3, name: "JavaScript" },
+      { id: 4, name: "Leaflet.Js" },
+      { id: 5, name: "Blockchain" },
+      { id: 6, name: "Avalanche" },
     ],
   },
   {
     id: 4,
-    name: "Electronics & Gadgets Store",
+    name: "Cookly",
     description:
-      "A multi-category online shop featuring electronics, home appliances, and gaming gear with special offers.",
+      "A community-driven, full-stack recipe sharing platform that allows users to discover, create, and share their favorite recipes.",
     href: "",
-    image: "/assets/projects/electronics-store.jpg",
+    image: "/assets/projects/cookly.jpg",
     bgImage: "/assets/backgrounds/poster.jpg",
     frameworks: [
-      { id: 1, name: "Vue.js" },
-      { id: 2, name: "Laravel" },
-      { id: 3, name: "MySQL" },
-      { id: 4, name: "SCSS" },
+      { id: 1, name: "HTML" },
+      { id: 2, name: "CSS" },
+      { id: 3, name: "JavaScript" },
+      { id: 4, name: "Firebase" },
     ],
   },
   {
     id: 5,
-    name: "Home Decor Marketplace",
+    name: "SushEli",
     description:
-      "A curated collection of designer home decor items, including furniture and artisan vases.",
+      "A UI design for a sushi based restaurant",
     href: "",
-    image: "/assets/projects/home-decor-store.jpg",
+    image: "/assets/projects/sushi.jpg",
     bgImage: "/assets/backgrounds/table.jpg",
     frameworks: [
-      { id: 1, name: "Angular" },
-      { id: 2, name: "Firebase" },
-      { id: 3, name: "GraphQL" },
-      { id: 4, name: "Material UI" },
-    ],
-  },
-  {
-    id: 6,
-    name: "Digital Game Store",
-    description:
-      "A gaming platform featuring discounted titles, top sellers, and genre-based browsing.",
-    href: "",
-    image: "/assets/projects/game-store.jpg",
-    bgImage: "/assets/backgrounds/curtains.jpg",
-    frameworks: [
-      { id: 1, name: "Svelte" },
-      { id: 2, name: "Node.js" },
-      { id: 3, name: "MongoDB" },
-      { id: 4, name: "Chakra UI" },
+      { id: 1, name: "HTML" },
+      { id: 2, name: "CSS" },
+      { id: 3, name: "JavaScript" },
+      { id: 4, name: "Vite" },
     ],
   },
 ];
