@@ -10,10 +10,10 @@ const About = () => {
     from prototype to production`;
   const aboutText = `I’m a Computer Science student and developer who enjoys turning ideas into useful, well-crafted digital experiences.
   \n
-⚡️ Building projects that start as “what if?” and somehow become working applications
-📊 Exploring data science—because there’s always a story hiding in the data
-💻 Turning caffeine, questionable ideas, and React components into something useful
-🚀 Learning new technologies just to see how far I can push them`;
+Building projects that start as “what if?” and somehow become working applications.
+Exploring data science—because there’s always a story hiding in the data.
+Turning caffeine, questionable ideas, and React components into something useful.
+Learning new technologies just to see how far I can push them.`;
   const imgRef = useRef(null);
   useGSAP(() => {
     gsap.to("#about", {
