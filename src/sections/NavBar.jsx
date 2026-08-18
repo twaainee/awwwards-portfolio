@@ -3,6 +3,7 @@ import { socials } from "../constants";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Link } from "react-scroll";
+import { useMediaQuery } from "react-responsive";
 
 const isHeroInView = () => {
   const hero = document.getElementById("home");
@@ -12,6 +13,7 @@ const isHeroInView = () => {
 };
 
 const Navbar = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const navRef = useRef(null);
   const linksRef = useRef([]);
   const contactRef = useRef(null);
@@ -113,16 +115,26 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     if (isOpen) {
-      tl.current.reverse();
-      iconTl.current.reverse();
+      tl.current.timeScale(1).reverse();
+      iconTl.current.timeScale(1).reverse();
       setIsHeroVisible(isHeroInView());
     } else {
-      tl.current.play();
-      iconTl.current.play();
+      tl.current.timeScale(1).play();
+      iconTl.current.timeScale(1).play();
     }
     setIsOpen(!isOpen);
   };
-  const isBurgerVisible = isOpen || isHeroVisible;
+
+  const closeMenu = () => {
+    if (!isOpen) return;
+
+    tl.current.timeScale(1.6).reverse();
+    iconTl.current.timeScale(1.6).reverse();
+    setIsOpen(false);
+    setIsHeroVisible(isHeroInView());
+  };
+
+  const isBurgerVisible = isMobile || isOpen || isHeroVisible;
 
   return (
     <>
@@ -140,6 +152,7 @@ const Navbar = () => {
                   smooth
                   offset={0}
                   duration={2000}
+                  onClick={closeMenu}
                 >
                   {section}
                 </Link>
