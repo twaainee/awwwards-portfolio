@@ -1,12 +1,17 @@
-import { useState } from 'react'
-import './App.css'
+import React from 'react'
+import NavBar from './sections/NavBar'
+import Hero from './sections/Hero'
+import ServiceSummary from './sections/ServiceSummary'
+import Services from './sections/Services'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <h1 className="text-red-500 text-5xl">Hello World</h1>
-
+    <div className="relative w-screen min-h-screen overflow-x-hidden">
+      <NavBar />
+      <Hero />
+      <ServiceSummary />
+      <Services />
+    </div>
   )
 }
 
