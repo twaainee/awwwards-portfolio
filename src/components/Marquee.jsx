@@ -15,6 +15,7 @@ const Marquee = ({
 
   function horizontalLoop(items, config) {
     items = gsap.utils.toArray(items);
+    if (!items.length) return null;
     config = config || {};
     let tl = gsap.timeline({
         repeat: config.repeat,
@@ -118,13 +119,15 @@ const Marquee = ({
   }
 
   useEffect(() => {
+    itemsRef.current = itemsRef.current.slice(0, items.length);
     const tl = horizontalLoop(itemsRef.current, {
       repeat: -1,
       paddingRight: 30,
       reversed: reverse,
     });
+    if (!tl) return undefined;
 
-    Observer.create({
+    const observer = Observer.create({
       onChangeY(self) {
         let factor = 2.5;
         if ((!reverse && self.deltaY < 0) || (reverse && self.deltaY > 0)) {
@@ -140,19 +143,22 @@ const Marquee = ({
           .to(tl, { timeScale: factor / 2.5, duration: 1 }, "+=0.3");
       },
     });
-    return () => tl.kill();
+    return () => {
+      observer.kill();
+      tl.kill();
+    };
   }, [items, reverse]);
   return (
     <div
       ref={containerRef}
       className={`overflow-hidden w-full h-20 md:h-[100px] flex items-center marquee-text-responsive font-light uppercase whitespace-nowrap ${className}`}
     >
-      <div className="flex">
+      <div className="flex w-max">
         {items.map((text, index) => (
           <span
             key={index}
             ref={(el) => (itemsRef.current[index] = el)}
-            className="flex items-center px-16 gap-x-32"
+            className="flex shrink-0 items-center px-8 gap-x-16 md:px-16 md:gap-x-32"
           >
             {text} <Icon icon={icon} className={iconClassName} />
           </span>
