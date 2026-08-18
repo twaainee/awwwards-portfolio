@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import AnimatedHeaderSection from '../components/AnimatedHeaderSection'
 import { projects } from '../constants'
 import { Icon } from '@iconify/react';

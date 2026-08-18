@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "./sections/Navbar";
+import Navbar from "./sections/NavBar";
 import Hero from "./sections/Hero";
 import ServiceSummary from "./sections/ServiceSummary";
 import Services from "./sections/Services";
@@ -12,13 +11,7 @@ import { useProgress } from "@react-three/drei";
 
 const App = () => {
   const { progress } = useProgress();
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    if (progress === 100) {
-      setIsReady(true);
-    }
-  }, [progress]);
+  const isReady = progress === 100;
 
   return (
     <ReactLenis root className="relative w-screen min-h-screen overflow-x-auto">

@@ -4,6 +4,13 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Link } from "react-scroll";
 
+const isHeroInView = () => {
+  const hero = document.getElementById("home");
+  const heroRect = hero?.getBoundingClientRect();
+
+  return Boolean(heroRect && heroRect.bottom > 0 && heroRect.top < window.innerHeight);
+};
+
 const Navbar = () => {
   const navRef = useRef(null);
   const linksRef = useRef([]);
@@ -13,7 +20,7 @@ const Navbar = () => {
   const tl = useRef(null);
   const iconTl = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
-  const [showBurger, setShowBurger] = useState(true);
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
   useGSAP(() => {
     gsap.set(navRef.current, { xPercent: 100 });
     gsap.set([linksRef.current, contactRef.current], {
@@ -71,30 +78,52 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+    const hero = document.getElementById("home");
 
-      setShowBurger(currentScrollY <= lastScrollY || currentScrollY < 10);
+    if (!hero) return;
 
-      lastScrollY = currentScrollY;
+    const updateHeroVisibility = () => {
+      if (isOpen) return;
+
+      setIsHeroVisible(isHeroInView());
     };
-    window.addEventListener("scroll", handleScroll, {
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!isOpen) {
+          setIsHeroVisible(entry.isIntersecting);
+        }
+      },
+      { threshold: 0 }
+    );
+
+    observer.observe(hero);
+    updateHeroVisibility();
+    window.addEventListener("scroll", updateHeroVisibility, {
       passive: true,
     });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    window.addEventListener("resize", updateHeroVisibility);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", updateHeroVisibility);
+      window.removeEventListener("resize", updateHeroVisibility);
+    };
+  }, [isOpen]);
 
   const toggleMenu = () => {
     if (isOpen) {
       tl.current.reverse();
       iconTl.current.reverse();
+      setIsHeroVisible(isHeroInView());
     } else {
       tl.current.play();
       iconTl.current.play();
     }
     setIsOpen(!isOpen);
   };
+  const isBurgerVisible = isOpen || isHeroVisible;
+
   return (
     <>
       <nav
@@ -150,9 +179,15 @@ const Navbar = () => {
         className="fixed z-50 flex flex-col items-center justify-center gap-1 transition-all duration-300 bg-black rounded-full cursor-pointer w-14 h-14 md:w-20 md:h-20 top-4 right-10"
         onClick={toggleMenu}
         style={
-          showBurger
-            ? { clipPath: "circle(50% at 50% 50%)" }
-            : { clipPath: "circle(0% at 50% 50%)" }
+          isBurgerVisible
+            ? {
+                clipPath: "circle(50% at 50% 50%)",
+                pointerEvents: "auto",
+              }
+            : {
+                clipPath: "circle(0% at 50% 50%)",
+                pointerEvents: "none",
+              }
         }
       >
         <span

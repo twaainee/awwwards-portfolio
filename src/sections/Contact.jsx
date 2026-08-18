@@ -1,4 +1,3 @@
-import React from 'react'
 import AnimatedHeaderSection from '../components/AnimatedHeaderSection'
 import { socials } from '../constants'
 import Marquee from '../components/Marquee'
